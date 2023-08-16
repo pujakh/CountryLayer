@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_and_Lead_Source_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISChanged(OwnerId),
+NOT($Profile.Name = &quot;System Administrator&quot;),
+OR(ISPICKVAL(LeadSource,&quot;&quot;),ISBLANK(Country))
+)</errorConditionFormula>
+    <errorMessage>Please fill in the Country and Lead Source value to update the Owner</errorMessage>
+</ValidationRule>
